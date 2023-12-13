@@ -1,4 +1,4 @@
-module github.com/channels-test-work
+module github.com/timurguseynov/channels-test-work
 
 go 1.21.1
 
