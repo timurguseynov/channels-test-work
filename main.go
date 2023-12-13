@@ -73,8 +73,6 @@ func appErrorHandler(ctx context.Context, cancel context.CancelFunc) chan<- erro
 				cancel()
 				return
 			}
-
-			return
 		case <-ctx.Done():
 			return
 		}
