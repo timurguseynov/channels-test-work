@@ -320,9 +320,6 @@ func main() {
 
 	wg := sync.WaitGroup{}
 
-	// uncomment to use select instead of appErrorHandler
-	// appErrCh := make(chan error)
-
 	appErrCh := appErrorHandler(ctx, cancel)
 
 	creatorCh := creator(ctx, &wg, appErrCh, totalTasks, failingFuncProvided)
@@ -341,13 +338,6 @@ func main() {
 		case sig := <-sigCh:
 			fmt.Println("signal received:", sig)
 			cancel()
-
-			// uncomment to use select instead of appErrorHandler
-			// case err := <-appErrCh:
-			// 	if err != nil {
-			// 		fmt.Println("processing failed:", err)
-			// 		cancel()
-			// 	}
 		}
 	}()
 
